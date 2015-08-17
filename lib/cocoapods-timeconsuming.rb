@@ -19,6 +19,26 @@ module Pod
       p 'download_dependencies cost: '+cost_time.to_s
       end_time = Time.new
 
+      determine_dependency_product_types
+      cost_time = Time.new.to_i-end_time.to_i
+      p 'determine_dependency_product_types cost: '+cost_time.to_s
+      end_time = Time.new
+
+      verify_no_duplicate_framework_names
+      cost_time = Time.new.to_i-end_time.to_i
+      p 'verify_no_duplicate_framework_names cost: '+cost_time.to_s
+      end_time = Time.new
+
+      verify_no_static_framework_transitive_dependencies
+      cost_time = Time.new.to_i-end_time.to_i
+      p 'verify_no_static_framework_transitive_dependencies cost: '+cost_time.to_s
+      end_time = Time.new
+
+      verify_framework_usage
+      cost_time = Time.new.to_i-end_time.to_i
+      p 'verify_framework_usage cost: '+cost_time.to_s
+      end_time = Time.new
+
       generate_pods_project
       cost_time = Time.new.to_i-end_time.to_i
       p 'generate_pods_project cost: '+cost_time.to_s
